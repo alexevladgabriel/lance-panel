@@ -98,7 +98,7 @@ class SftpAuthenticationControllerTest extends IntegrationTestCase
      */
     public function testUserIsThrottledIfInvalidCredentialsAreProvided()
     {
-        for ($i = 0; $i <= 10; ++$i) {
+        for ($i = 0; $i <= 10; $i++) {
             $this->postJson('/api/remote/sftp/auth', [
                 'type' => 'public_key',
                 'username' => $i % 2 === 0 ? $this->user->username : $this->getUsername(),
